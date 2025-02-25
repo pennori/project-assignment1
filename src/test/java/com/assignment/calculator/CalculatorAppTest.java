@@ -140,7 +140,7 @@ class CalculatorAppTest {
 
         // Then
         verify(mockInputHandler, times(1)).getInput();
-        verify(mockExpressionEvaluator, times(1)).evaluateExpression(eq("  3 +  7  "), any(Pattern.class));
+        verify(mockExpressionEvaluator, times(1)).evaluateExpression(eq("3 +  7"), any(Pattern.class));
         assertEquals(1, TestUtils.getPrivateField(calculatorApp, "currentIteration"));
     }
 

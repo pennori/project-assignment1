@@ -36,7 +36,11 @@ public class CalculatorApp extends AppTemplate {
         System.out.print(AppMessages.PROMPT_MESSAGE);
         String input = userInputHandler.getInput();
 
-        if (input == null) {
+        if (input != null) {
+            input = input.trim();
+        }
+
+        if (input == null || input.isEmpty()) {
             System.out.println(CalculationMessages.INVALID_EXPRESSION_MESSAGE);
             return;
         }
@@ -44,11 +48,6 @@ public class CalculatorApp extends AppTemplate {
         if (input.equalsIgnoreCase("exit")) {
             running = false;
             System.out.println(AppMessages.EXIT_MESSAGE);
-            return;
-        }
-
-        if (input.isEmpty()) {
-            System.out.println(CalculationMessages.INVALID_EXPRESSION_MESSAGE);
             return;
         }
 
