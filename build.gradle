@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.assignment'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.5.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    archiveFileName.set('project-assignment1.jar')
+    manifest {
+        attributes 'Main-Class': 'com.assignment.AppInitializer'
+    }
+}
